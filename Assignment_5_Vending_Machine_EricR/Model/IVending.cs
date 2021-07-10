@@ -9,13 +9,13 @@ namespace Assignment_5_Vending_Machine_EricR.Model
     interface IVending
     {
 
-        VendingMachine Purchase(int inProdSlot);
+        public bool Purchase(int inProdSlot, out AbstractVending foundProductResult);
 
-        VendingMachine[] ShowAll();
+        public static AbstractVending[] ShowAll { get; }
 
-        int InsertMoney();
+        public bool InsertMoney(int inputMoney, out string returnMessage);
 
-        Dictionary<int, string> EndTransaction();
+        public Dictionary<int, int> EndTransaction();
 
     }
 

@@ -10,51 +10,34 @@ namespace Assignment_5_Vending_Machine_EricR.Model
 
         public int SlotNumber { get; set; }
         public string ProductName { get; set; }
+        public int Price { get; set; }
 
         public abstract string Info();
+        public abstract string Usage();
 
-        //int _slotNumber { get; set; }
-        //string _productName { get; set; }
-
-        //public int SlotNumber
-        //{
-        //    get { return _slotNumber; }
-        //    set { _slotNumber = value; }
-        //}
-
-        //public string ProductName
-        //{
-        //    get { return _productName; }
-        //    set { _productName = value; }
-        //}
-
-
-        public AbstractVending(int slotNumber, string productName)
+        public AbstractVending(int slotNumber, string productName, int price)
         {
             SlotNumber = slotNumber;
             ProductName = productName;
-            //this._slotNumber = slotNumber;
-            //this._productName = productName;
+            Price = price;
         }
 
 
-        static void Examine()
+        public string Examine(AbstractVending produktInfo)
         {
-
+            return $"\n{produktInfo.Info()}\n";
         }
 
 
-
-
-        static void Use()
+        public string Use(AbstractVending produktInfo)
         {
-
+            return $"\n{produktInfo.Usage()}\n";
         }
 
 
         public override string ToString()
         {
-            return $"------- VendorMachine Inventory\nSlotNumber: {SlotNumber}\tName: {ProductName}";
+            return $"\nSlotNumber: {SlotNumber}\tName: {ProductName}\n";
         }
     }
 
